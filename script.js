@@ -68,6 +68,9 @@ loginBtn.addEventListener("click",
 
         loginBox.style.display = "none";
         menu.style.display = "block";
+        setTimeout(() => {
+        alert("Welcome to ATM Pro! Have a secure transaction.🎉😊");
+    }, 400);
         pinInput.value = "";
         repinInput.value = "";
     }
@@ -109,7 +112,7 @@ newPinCreate.addEventListener("click",
         repinInput.value = "";
         loginBox.style.display = "flex";
         changepinBox.style.display = "none";
-        alert("Success: PIN changed successfully! Please log in with your new PIN.");
+        alert("Success: PIN changed successfully! Please log in with your new PIN. ✅");
     }
 );
 
@@ -151,7 +154,7 @@ function depositMoney() {
     recordTransaction("Deposited", userAmount);
     let display = document.querySelector(".mainBalance");
     display.innerText = "Rs." + currentBalance.toLocaleString();
-    alert("Success! Your amount has been deposited.");
+    alert("Success! Your amount has been deposited.✅");
 }
 
 function withdrawMoney() {
@@ -182,7 +185,7 @@ function withdrawMoney() {
         recordTransaction("Withdrawn", widthdrawAmount);
         let display = document.querySelector(".mainBalance");
         display.innerText = "Rs." + currentBalance.toLocaleString();
-        alert("Success! Cash withdrawn.");
+        alert("Success! Cash withdrawn.✅");
     }
 
 }
@@ -226,7 +229,7 @@ function transferMoney() {
             recordTransaction("Transferred", transferAmount);
             let display = document.querySelector(".mainBalance")
             display.innerText = "Rs." + currentBalance.toLocaleString();
-            alert("Transfer SucessFully");
+            alert("Transfer SucessFully ✅");
         }
     }
 }
