@@ -1,0 +1,467 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --body-bg: #05070a;
+    --card-bg: #161b22;
+    --text-primary: #FFFFFF;
+    --text-secondary: #8B949E;
+
+    /* Neon Glow Hex Codes */
+    --neon-green: #00ff88;
+    --neon-blue: #00d9ff;
+    --neon-purple: #bb00ff;
+    --neon-orange: #ff9900;
+    --neon-red: #ff4444;
+    --teal-glow: #004d40;
+}
+
+body {
+    background-color: var(--body-bg);
+    background-image: radial-gradient(circle at 0% 100%, rgba(35, 134, 54, 0.12) 0%, transparent 45%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    color: var(--text-primary);
+}
+
+.login-box::before,
+.menu::before,
+.change-pin-box::before {
+    content: "";
+    position: absolute;
+    width: 200px;
+    height: 200px;
+    background: rgba(34, 197, 94, 0.15);
+    filter: blur(80px);
+    border-radius: 50%;
+    z-index: 0;
+    top: -50px;
+    left: -50px;
+    pointer-events: none
+}
+
+.login-box,
+.menu,
+.change-pin-box {
+        width: 450px;
+    max-width: 90vw;
+    background: var(--card-bg);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-radius: 24px;
+    padding: 40px 25px;
+    box-shadow: 0 0 25px rgba(46, 204, 113, 0.2),
+        0 10px 50px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.login-box {
+    background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 70%);
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.login-box h1 {
+    text-align: center;
+    margin-bottom: 0px;
+    color: #ffffff;
+}
+
+.login-box h2 {
+    font-size: 22px;
+    color: var(--text-primary);
+    margin-bottom: 10px;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+        position: relative;
+}
+
+label {
+    font-size: 13px;
+    color: var(--text-secondary);
+    margin-bottom: 8px;
+    margin-top: 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+
+ .toggle-eye {
+    position: absolute;
+    right: 15px;
+    top: 30%; 
+    cursor: pointer;
+    font-size: 16px;
+    color: var(--text-secondary);
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.toggle-eye:hover {
+        filter: brightness(1.5);
+    text-shadow: 0 0 8px var(--neon-green);
+}
+
+input:focus {
+    border-color: var(--neon-green);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.login-btn {
+    width: 100%;
+    padding: 16px;
+    background-color: var(--neon-green);
+    box-shadow: 0 0 20px var(--neon-green);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-top: 10px;
+}
+
+.login-btn:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.menu {
+    width: 450px;
+    max-width: 90vw;
+    height: auto;
+    background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 70%);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 40px 25px;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    display: none;
+}
+
+.menu h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: var(--text-secondary);
+}
+
+.balance-show {
+    background: linear-gradient(135deg, #064d3b 0%, #0d1117 100%);
+    padding: 25px;
+    width: 100%;
+    border-radius: 18px;
+    margin-bottom: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.balance-show p {
+    color: var(--text-secondary);
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.balance-show h1 {
+    font-size: 32px;
+    margin-top: 5px;
+}
+
+.menu-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    width: 100%;
+}
+
+.menu-list button {
+    background-color: var(--card-bg);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.menu-list .log-out {
+    grid-column: span 2;
+    background: var(--card-bg);
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+   display: flex; 
+    justify-content: left; 
+    align-items: center;
+}
+.menu-list .log-out .icon-circle {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+}
+.menu-list .log-out i {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-red);
+    filter: drop-shadow(0 0 5px var(--neon-red));
+    font-size: 18px;
+}
+
+.menu-list .log-out:hover {
+    background: rgba(248, 81, 73, 0.1);
+}
+
+.menu-list button:nth-child(1) {
+    border-left: 4px solid var(--neon-green);
+    box-shadow: -5px 0 15px rgba(0, 255, 136, 0.2);
+}
+
+.menu-list button:nth-child(2) {
+    border-left: 4px solid var(--neon-blue);
+    box-shadow: -5px 0 15px rgba(31, 111, 235, 0.2);
+}
+
+.menu-list button:nth-child(3) {
+    border-left: 4px solid var(--neon-purple);
+    box-shadow: -5px 0 15px rgba(137, 87, 229, 0.2);
+}
+
+.menu-list button:nth-child(4) {
+    border-left: 4px solid var(--neon-orange);
+    box-shadow: -5px 0 15px rgba(210, 153, 34, 0.2);
+}
+
+.menu button:hover {
+    filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.icon-circle {
+    background: rgba(137, 87, 229, 0.1);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.07); 
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);                    
+    transition: all 0.3s ease;
+}
+
+.menu-list button:nth-child(1) .icon-circle {
+    background: rgba(0, 255, 136, 0.1); 
+}
+.menu-list button:nth-child(2) .icon-circle {
+    background: rgba(0, 217, 255, 0.1);
+}
+.menu-list button:nth-child(3) .icon-circle {
+    background: rgba(187, 0, 255, 0.1);
+}
+.menu-list button:nth-child(4) .icon-circle {
+    background: rgba(255, 153, 0, 0.1); 
+}
+
+.menu-list button:nth-child(1) i {
+        color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-green);
+    filter: drop-shadow(0 0 2px var(--neon-green));
+    font-size: 20px;
+}
+
+.menu-list button:nth-child(2) i {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-blue);
+    filter: drop-shadow(0 0 2px var(--neon-blue));
+    font-size: 20px;
+}
+
+.menu-list button:nth-child(3) i {
+       color: transparent; 
+    -webkit-text-stroke: 1.5px var(--neon-purple); 
+    filter: drop-shadow(0 0 2px var(--neon-purple));
+    font-size: 20px;
+}
+
+.menu-list button:nth-child(4) i {
+    color: transparent; 
+    -webkit-text-stroke: 1.5px var(--neon-orange); 
+    filter: drop-shadow(0 0 2px var(--neon-orange));
+    font-size: 20px;
+}
+
+.menu-list button span {
+    font-size: 15px;
+    color: white;
+    font-weight: 500;
+}
+
+.change-pin-box {
+      background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 70%);
+    text-align: left;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    display: none;
+}
+
+.change-pin-box h1 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 20px;
+    color: var(--text-secondary);
+}
+
+.change-pin-box input {
+width: 100%;
+    padding: 14px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: 0.3s ease;
+}
+
+.change-pin-box input:focus {
+    border-color: var(--neon-green);
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: 0 0 15px rgba(0, 255, 136, 0.3);
+}
+
+.btns-group {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px; 
+    margin-top: 25px;
+    width: 100%;
+}
+
+.new-pin-create, .exit-button {
+    flex: 1; 
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    gap: 10px;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s ease;
+    padding: 0 10px; 
+}
+
+.new-pin-create {
+    background: var(--neon-orange);
+    border: none;
+    color: white; 
+    box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
+    margin-top: 0; 
+}
+
+.new-pin-create .icon-circle {
+    background: rgba(255, 255, 255, 0.2); 
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+.new-pin-create i {
+    color: white; 
+    font-size: 18px;
+}
+
+.new-pin-create:hover{
+      filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+.exit-button {
+    background: var(--card-bg);
+    border: 1px solid var(--neon-red);
+    color: var(--neon-red);
+    margin-top: 0; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.exit-button .icon-circle {
+    background: rgba(255, 68, 68, 0.1);
+    border: 1px solid rgba(255, 68, 68, 0.2);
+}
+.exit-button i {
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-red);
+    filter: drop-shadow(0 0 5px var(--neon-red));
+    font-size: 18px;
+}
+
+.exit-button:hover {
+    background: rgba(248, 81, 73, 0.1);
+          filter: brightness(1.1);
+    transform: translateY(-2px);
+}
+
+
+
+
+@media (max-width: 600px) {
+    .menu-list {
+        gap: 8px;
+    }
+
+    .menu button {
+        font-size: 12px;
+        height: auto;
+        padding: 10px 8px;
+        gap: 6px;
+    }
+    .menu-list button span {
+        white-space: nowrap; 
+    }
+    .icon-circle {
+        width: 32px; 
+        height: 32px;
+        min-width: 32px;
+    }
+}

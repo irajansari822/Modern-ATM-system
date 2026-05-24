@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+    <link rel="stylesheet" href="./style.css">
+    <title>ATM SYSTEM</title>
+</head>
+
+<body>
+    <div class="login-box">
+        <h1>ATM</h1>
+        <h2>LOG IN</h2>
+        <div class="info" style="position: relative;">
+            <label>PIN:</label>
+            <input type="password" id="pin-input" placeholder="Default: 1234">
+            <i class="fa-solid fa-eye toggle-eye" onclick="toggleGeneric('pin-input', this)"></i>
+
+            <label>Re-enter:</label>
+            <input type="password" id="re-pin-input" placeholder="Re-enter PIN">
+            <i class="fa-solid fa-eye toggle-eye" onclick="toggleGeneric('re-pin-input', this)" style="top: 137px;"></i>
+        </div>
+        <button class="login-btn">LOG IN</button>
+    </div>
+    <div class="menu">
+        <h2>ATM Dashboard</h2>
+        <div class="balance-show">
+            <p>current balance</p>
+            <h1 class="mainBalance">Rs.25,000</h1>
+        </div>
+        <div class="menu-list">
+            <button onclick="withdrawMoney()">
+                <div class="icon-circle"><i class="fa-solid fa-circle-arrow-down"></i></div><span>Cash Withdraw</span>
+            </button>
+            <button onclick="depositMoney()">
+                <div class="icon-circle"><i class="fa-solid fa-arrow-up-from-bracket"></i></div><span>Deposit</span>
+            </button>
+            <button onclick="transferMoney()">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-right-left"></i>
+                </div>
+                <span>Transfer Money</span>
+            </button>
+            <button class="change-pin">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-lock"></i>
+                </div><span>Change PIN</span>
+            </button>
+            <button class="log-out">
+                <div class="icon-circle">
+                    <i class="fa-solid fa-power-off"></i>
+                </div>
+                <span>LOGOUT</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="change-pin-box">
+        <h1>Change PIN</h1>
+        <div class="info" style="position: relative;">
+            <label>Old PIN</label>
+            <input type="password" id="old-pin" placeholder="Enter Old PIN">
+            <i class="fa-solid fa-eye toggle-eye" onclick="toggleGeneric('old-pin', this)"></i>
+
+            <label style="margin-top: 15px; display: block;">New PIN</label>
+            <input type="password" id="new-pin" placeholder="Enter New PIN">
+            <i class="fa-solid fa-eye toggle-eye" onclick="toggleGeneric('new-pin', this)" style="top: 137px;"></i>
+        </div>
+
+        <div class="btns-group">
+            <button class="exit-button">
+                <div class="icon-circle"><i class="fa-solid fa-arrow-right-from-bracket"></i></div>
+                <span>Exit</span>
+            </button>
+            <button class="new-pin-create">
+                <div class="icon-circle"><i class="fa-solid fa-check"></i></div>
+                <span>Confirm</span>
+            </button>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>
