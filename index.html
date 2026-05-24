@@ -25,6 +25,26 @@
         <button class="login-btn">LOG IN</button>
     </div>
     <div class="menu">
+        <nav class="top-navbar">
+            <div class="logo-section">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>ATM <span class="pro-text">PRO</span></span>
+            </div>
+
+            <div class="history-btn" onclick="showHistory()">
+                <i class="fa-solid fa-clock-rotate-left"></i>
+                <span>History</span>
+            </div>
+        </nav>
+        <div id="historySidebar" class="history-sidebar">
+            <div class="sidebar-header">
+                <h3>Transaction History</h3>
+                <i class="fa-solid fa-xmark close-btn" onclick="closeHistory()"></i>
+            </div>
+            <div id="historyContent" class="history-content">
+                <p class="no-data">No transactions yet.</p>
+            </div>
+        </div>
         <h2>ATM Dashboard</h2>
         <div class="balance-show">
             <p>current balance</p>

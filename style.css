@@ -49,7 +49,7 @@ body {
 .login-box,
 .menu,
 .change-pin-box {
-        width: 450px;
+    width: 450px;
     max-width: 90vw;
     background: var(--card-bg);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -76,19 +76,29 @@ body {
     text-align: center;
     margin-bottom: 0px;
     color: #ffffff;
+    text-shadow: 
+        0 0 20px var(--neon-green),
+        0 0 1px var(--neon-blue);
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .login-box h2 {
     font-size: 22px;
     color: var(--text-primary);
     margin-bottom: 10px;
+        text-shadow: 
+        0 0 20px var(--neon-green),
+        0 0 1px var(--neon-blue);
+    font-weight: 800;
+    letter-spacing: 2px;
 }
 
 .info {
     display: flex;
     flex-direction: column;
     text-align: left;
-        position: relative;
+    position: relative;
 }
 
 label {
@@ -113,10 +123,10 @@ input {
 }
 
 
- .toggle-eye {
+.toggle-eye {
     position: absolute;
     right: 15px;
-    top: 30%; 
+    top: 30%;
     cursor: pointer;
     font-size: 16px;
     color: var(--text-secondary);
@@ -125,7 +135,7 @@ input {
 }
 
 .toggle-eye:hover {
-        filter: brightness(1.5);
+    filter: brightness(1.5);
     text-shadow: 0 0 8px var(--neon-green);
 }
 
@@ -139,7 +149,7 @@ input:focus {
     width: 100%;
     padding: 16px;
     background-color: var(--neon-green);
-    box-shadow: 0 0 20px var(--neon-green);
+    box-shadow: 0 0 6px var(--neon-green);
     color: white;
     border: none;
     border-radius: 12px;
@@ -164,18 +174,152 @@ input:focus {
     border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
     border-radius: 20px;
-    padding: 40px 25px;
-    position: relative;
+    padding: 0 25px 40px 25px;
     overflow: hidden;
+    position: relative;
     z-index: 1;
     display: none;
 }
 
+.top-navbar {
+    width: calc(100% + 50px);
+    margin-left: -25px;
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 22px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.logo-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    color: #ffffff;
+}
+
+.logo-section i {
+    color: var(--neon-green, #39ff14);
+    filter: drop-shadow(0 0 5px var(--neon-green));
+}
+
+.pro-text {
+    color: var(--neon-green, #39ff14);
+    text-shadow: 0 0 8px rgba(57, 255, 20, 0.5);
+}
+
+.history-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.history-btn i {
+    font-size: 22px;
+    color: var(--neon-blue);
+    filter: drop-shadow(0 0 5px var(--neon-blue));
+    margin-bottom: 2px;
+}
+
+.history-btn span {
+    font-size: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
+.history-btn:hover {
+    transform: scale(1.1);
+}
+
+.history-btn:hover i {
+    color: #fff;
+    filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.history-btn:hover span {
+    color: var(--neon-blue);
+}
+
+.history-sidebar {
+    position: absolute;
+    top: 0;
+    right: -100%; 
+    width: 280px;
+    height: 100%;
+    background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 40%);
+    backdrop-filter: blur(30px);
+    border-left: 2px solid var(--neon-blue, #00d2ff);
+    transition: 0.4s ease-in-out;
+    z-index: 100;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Jab sidebar khulegi toh ye class add hogi */
+.history-sidebar.active {
+    right: 0;
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+}
+
+.sidebar-header h3 {
+    font-size: 16px;
+    color: var(--text-primary);
+    text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.close-btn {
+    cursor: pointer;
+    font-size: 20px;
+    color: #fff;
+    transition: 0.3s ease;
+}
+
+.close-btn:hover{
+   filter: drop-shadow(0 0 10px var(--neon-blue));
+}
+
+.history-content {
+    overflow-y: auto;
+    max-height: calc(100% - 60px);
+}
+
+/* History Items ki styling */
+.history-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    border-left: 3px solid var(--neon-green);
+    font-size: 13px;
+    color: #ddd;
+}
+
 .menu h2 {
     text-align: center;
-    margin-bottom: 25px;
+    margin: 25px 0 25px 0;
     font-size: 20px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+    text-shadow: 
+        0 0 7px var(--neon-blue), 
+        0 0 15px var(--teal-glow);
 }
 
 .balance-show {
@@ -229,14 +373,16 @@ input:focus {
     padding: 10px;
     margin-top: 10px;
     text-align: center;
-   display: flex; 
-    justify-content: left; 
+    display: flex;
+    justify-content: left;
     align-items: center;
 }
+
 .menu-list .log-out .icon-circle {
     background: rgba(255, 68, 68, 0.1);
     border: 1px solid rgba(255, 68, 68, 0.2);
 }
+
 .menu-list .log-out i {
     color: transparent;
     -webkit-text-stroke: 1.5px var(--neon-red);
@@ -281,27 +427,30 @@ input:focus {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: rgba(255, 255, 255, 0.07); 
+    background: rgba(255, 255, 255, 0.07);
     backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);                    
+    -webkit-backdrop-filter: blur(5px);
     transition: all 0.3s ease;
 }
 
 .menu-list button:nth-child(1) .icon-circle {
-    background: rgba(0, 255, 136, 0.1); 
+    background: rgba(0, 255, 136, 0.1);
 }
+
 .menu-list button:nth-child(2) .icon-circle {
     background: rgba(0, 217, 255, 0.1);
 }
+
 .menu-list button:nth-child(3) .icon-circle {
     background: rgba(187, 0, 255, 0.1);
 }
+
 .menu-list button:nth-child(4) .icon-circle {
-    background: rgba(255, 153, 0, 0.1); 
+    background: rgba(255, 153, 0, 0.1);
 }
 
 .menu-list button:nth-child(1) i {
-        color: transparent;
+    color: transparent;
     -webkit-text-stroke: 1.5px var(--neon-green);
     filter: drop-shadow(0 0 2px var(--neon-green));
     font-size: 20px;
@@ -315,15 +464,15 @@ input:focus {
 }
 
 .menu-list button:nth-child(3) i {
-       color: transparent; 
-    -webkit-text-stroke: 1.5px var(--neon-purple); 
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-purple);
     filter: drop-shadow(0 0 2px var(--neon-purple));
     font-size: 20px;
 }
 
 .menu-list button:nth-child(4) i {
-    color: transparent; 
-    -webkit-text-stroke: 1.5px var(--neon-orange); 
+    color: transparent;
+    -webkit-text-stroke: 1.5px var(--neon-orange);
     filter: drop-shadow(0 0 2px var(--neon-orange));
     font-size: 20px;
 }
@@ -335,7 +484,7 @@ input:focus {
 }
 
 .change-pin-box {
-      background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 70%);
+    background: radial-gradient(circle at bottom left, var(--teal-glow) 0%, var(--body-bg) 70%);
     text-align: left;
     position: relative;
     display: flex;
@@ -348,11 +497,14 @@ input:focus {
     text-align: center;
     margin-bottom: 25px;
     font-size: 20px;
-    color: var(--text-secondary);
+    color: var(--text-primary);
+       text-shadow: 
+        0 0 20px var(--neon-green),
+        0 0 1px var(--neon-blue);
 }
 
 .change-pin-box input {
-width: 100%;
+    width: 100%;
     padding: 14px;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -373,45 +525,47 @@ width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 12px; 
+    gap: 12px;
     margin-top: 25px;
     width: 100%;
 }
 
-.new-pin-create, .exit-button {
-    flex: 1; 
+.new-pin-create,
+.exit-button {
+    flex: 1;
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: center; 
+    justify-content: center;
     gap: 10px;
     border-radius: 12px;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
     transition: 0.3s ease;
-    padding: 0 10px; 
+    padding: 0 10px;
 }
 
 .new-pin-create {
     background: var(--neon-orange);
     border: none;
-    color: white; 
+    color: white;
     box-shadow: 0 0 20px rgba(255, 153, 0, 0.4);
-    margin-top: 0; 
+    margin-top: 0;
 }
 
 .new-pin-create .icon-circle {
-    background: rgba(255, 255, 255, 0.2); 
+    background: rgba(255, 255, 255, 0.2);
     border: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .new-pin-create i {
-    color: white; 
+    color: white;
     font-size: 18px;
 }
 
-.new-pin-create:hover{
-      filter: brightness(1.1);
+.new-pin-create:hover {
+    filter: brightness(1.1);
     transform: translateY(-2px);
 }
 
@@ -419,7 +573,7 @@ width: 100%;
     background: var(--card-bg);
     border: 1px solid var(--neon-red);
     color: var(--neon-red);
-    margin-top: 0; 
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -429,6 +583,7 @@ width: 100%;
     background: rgba(255, 68, 68, 0.1);
     border: 1px solid rgba(255, 68, 68, 0.2);
 }
+
 .exit-button i {
     color: transparent;
     -webkit-text-stroke: 1.5px var(--neon-red);
@@ -438,7 +593,7 @@ width: 100%;
 
 .exit-button:hover {
     background: rgba(248, 81, 73, 0.1);
-          filter: brightness(1.1);
+    filter: brightness(1.1);
     transform: translateY(-2px);
 }
 
@@ -456,11 +611,13 @@ width: 100%;
         padding: 10px 8px;
         gap: 6px;
     }
+
     .menu-list button span {
-        white-space: nowrap; 
+        white-space: nowrap;
     }
+
     .icon-circle {
-        width: 32px; 
+        width: 32px;
         height: 32px;
         min-width: 32px;
     }

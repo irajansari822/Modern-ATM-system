@@ -22,7 +22,7 @@ let newPinInput = document.querySelector("#new-pin");
 let exitButton = document.querySelector(".exit-button")
 
 exitButton.addEventListener("click",
-    function(){
+    function () {
         changepinBox.style.display = "none";
         menu.style.display = "block";
     }
@@ -30,6 +30,14 @@ exitButton.addEventListener("click",
 
 //default PIN jo system yaad rakhega
 let savedPin = "1234";
+let transactionHistory = []; 
+
+// Ye function data ko save karega
+function recordTransaction(type, amount) {
+    const time = new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+    const entry = `${type}: Rs. ${amount.toLocaleString()} [${time}]`;
+    transactionHistory.unshift(entry);
+}
 
 //* login BUTTON \\*
 loginBtn.addEventListener("click",
@@ -140,7 +148,7 @@ function depositMoney() {
     }
 
     currentBalance += userAmount
-
+    recordTransaction("Deposited", userAmount);
     let display = document.querySelector(".mainBalance");
     display.innerText = "Rs." + currentBalance.toLocaleString();
     alert("Success! Your amount has been deposited.");
@@ -171,6 +179,7 @@ function withdrawMoney() {
 
     else {
         currentBalance -= widthdrawAmount
+        recordTransaction("Withdrawn", widthdrawAmount);
         let display = document.querySelector(".mainBalance");
         display.innerText = "Rs." + currentBalance.toLocaleString();
         alert("Success! Cash withdrawn.");
@@ -214,6 +223,7 @@ function transferMoney() {
 
         if (success === true) {
             currentBalance -= transferAmount
+            recordTransaction("Transferred", transferAmount);
             let display = document.querySelector(".mainBalance")
             display.innerText = "Rs." + currentBalance.toLocaleString();
             alert("Transfer SucessFully");
@@ -224,7 +234,6 @@ function transferMoney() {
 
 function toggleGeneric(inputId, iconElement) {
     const input = document.getElementById(inputId);
-    
     if (input.type === "password") {
         input.type = "text";
         iconElement.classList.replace("fa-eye", "fa-eye-slash");
@@ -235,4 +244,25 @@ function toggleGeneric(inputId, iconElement) {
         iconElement.classList.replace("fa-eye-slash", "fa-eye");
         iconElement.style.color = "var(--text-secondary)";
     }
+}
+
+function showHistory() {
+    const sidebar = document.getElementById('historySidebar');
+    const content = document.getElementById('historyContent');
+
+    sidebar.classList.add('active');
+
+    if (transactionHistory.length === 0) {
+        content.innerHTML = '<p class="no-data">No transactions yet.</p>';
+    } else {
+        content.innerHTML = transactionHistory.map(item => `
+            <div class="history-item">
+                ${item}
+            </div>
+        `).join('');
+    }
+}
+
+function closeHistory() {
+    document.getElementById('historySidebar').classList.remove('active');
 }
